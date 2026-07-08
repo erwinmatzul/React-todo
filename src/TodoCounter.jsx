@@ -1,0 +1,10 @@
+import './styles/TodoCounter.css'
+
+
+function TodoCounter({ total, completed }) {
+    return (
+        <h1 className='todo-counter'>{`${completed == total ? `Tareas Completadas` : `Has completado ${completed} de ${total} TODOS`}`}</h1>
+    )
+}
+
+export { TodoCounter }

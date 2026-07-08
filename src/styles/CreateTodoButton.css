@@ -1,0 +1,25 @@
+.create-todo-btn {
+  background-color: #0f172a;
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 20px;
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.15);
+  transition: all 0.2s ease;
+}
+
+.create-todo-btn:hover {
+  background-color: #1e293b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.2);
+}
+
+.create-todo-btn:active {
+  transform: translateY(0);
+}
