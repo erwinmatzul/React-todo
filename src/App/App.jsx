@@ -1,23 +1,27 @@
-import { TodoCounter } from './TodoCounter'
-import { TodoSearch } from './TodoSearch'
-import { TodoList } from './TodoList'
-import { CreateTodoButton } from './CreateTodoButton'
-import { TodoItem } from './TodoItem'
-
+import { TodoCounter } from '../TodoCounter'
+import { TodoSearch } from '../TodoSearch'
+import { TodoList } from '../TodoList'
+import { CreateTodoButton } from '../CreateTodoButton'
+import { TodoItem } from '../TodoItem'
 import React from 'react'
 import { useState } from 'react'
+import { useLocalStorage } from './useLocalStorage'
+import '../App.css'
 
-import './styles/App.css'
-
-const defaultTodos = [
+/*    const defaultTodos = [
   { text: "Cortar cebolla", completed: false },
   { text: "Tomar el Curso de intro de React.js", completed: false },
   { text: "Llorar con la Llorona", completed: false },
-]
+]  
+ 
+     localStorage.setItem('TODOS_V1', JSON.stringify(defaultTodos))
+    */
+/* 
+localStorage.removeItem('TODOS_V1') */
 
 function App() {
 
-  const [todos, setTodos] = React.useState(defaultTodos)
+  const [todos, saveTodos] = useLocalStorage('TODOS_V1', [])
   const [searchValue, setSearchValue] = React.useState("")
 
   const searchedTodos = todos.filter(todo => todo.text.toLowerCase().includes(searchValue.toLowerCase()))
@@ -33,8 +37,9 @@ function App() {
       (todo) => todo.text == text
     )
 
-    newTodos[todoIndex].completed = true
-    setTodos(newTodos)
+    newTodos[todoIndex].completed = newTodos[todoIndex].completed ? false : true;
+    saveTodos(newTodos)
+
   }
 
   const deleteTodo = (text) => {
@@ -45,16 +50,13 @@ function App() {
     )
 
     newTodos.splice(todoIndex, 1)
-    setTodos(newTodos)
-
+    saveTodos(newTodos)
   }
-
 
   return (
     <>
       <TodoCounter completed={completedTodos} total={totalTodos} />
       <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
-
       <TodoList>
 
         {
@@ -68,7 +70,6 @@ function App() {
         }
 
       </TodoList>
-
       <CreateTodoButton />
     </> //61dafa
   )

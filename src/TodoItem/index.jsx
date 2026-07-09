@@ -1,12 +1,12 @@
-import './styles/TodoItem.css'
-import { CompleteIcon } from './CompleteIcon'
-import { DeleteIcon } from './DeleteIcon'
+import './TodoItem.css'
+import { CompleteIcon } from '../CompleteIcon'
+import { DeleteIcon } from '../DeleteIcon'
 
 function TodoItem({ text, completed, onCompleted, onDelete }) {
   return (
     <li className="todo-item">
       
-      <CompleteIcon />
+      <CompleteIcon completed={completed} onCompleted={onCompleted}/>
 
       <p className={`todo-text ${completed ? "todo-text-subrayado" : ""}`}>{text}</p>
       
@@ -23,7 +23,7 @@ function TodoItem({ text, completed, onCompleted, onDelete }) {
  */}
 
  
-      <DeleteIcon />
+      <DeleteIcon completed={completed} onDelete={onDelete} />
 
     </li>
   )

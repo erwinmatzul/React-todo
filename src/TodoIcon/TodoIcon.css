@@ -1,0 +1,24 @@
+.todo-icon-green svg {
+  width: 15px;
+  fill: #4caf50; 
+}
+
+.todo-icon-gray svg {
+  width: 15px;
+  fill: #808080;
+}
+
+.todo-icon-gray:hover svg {
+  fill: #4caf50;
+  cursor: pointer;
+}
+
+.todo-icon-red svg {
+  width: 12px;
+  fill: #808080;
+}
+
+.todo-icon-red:hover svg {
+  fill: #f44336;
+  cursor: pointer;
+}
