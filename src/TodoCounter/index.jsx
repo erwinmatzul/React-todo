@@ -1,9 +1,15 @@
+
+import { TodoContext } from '../TodoContext'
+import React  from 'react'
+
 import './TodoCounter.css'
 
+function TodoCounter() {
 
-function TodoCounter({ total, completed }) {
+    const { completedTodos, totalTodos } = React.useContext(TodoContext)
+
     return (
-        <h1 className='todo-counter'>{`${completed == total ? `Tareas Completadas` : `Has completado ${completed} de ${total} TODOS`}`}</h1>
+        <h1 className='todo-counter'>{`${completedTodos == totalTodos ? `Tareas Completadas` : `Has completado ${completedTodos} de ${totalTodos} TODOS`}`}</h1>
     )
 }
 

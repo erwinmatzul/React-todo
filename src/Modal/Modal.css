@@ -1,0 +1,133 @@
+.Modal {
+    background: rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+.todo-form {
+    width: 90%;
+    max-width: 440px;
+    background-color: #ffffff;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border: 1px solid #f1f5f9;
+    animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.todo-form label {
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #0f172a;
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+.todo-form textarea {
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    color: #334155;
+    font-size: 15px;
+    line-height: 1.5;
+    padding: 16px;
+    height: 120px;
+    resize: none;
+    transition: all 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.todo-form textarea::placeholder {
+    color: #94a3b8;
+}
+
+.todo-form textarea:focus {
+    outline: none;
+    background-color: #ffffff;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+.todo-form-buttonContainer {
+    margin-top: 24px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    width: 100%;
+}
+
+.todo-form-button {
+    font-family: system-ui, -apple-system, sans-serif;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 20px;
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.todo-form-button--cancel {
+    background: #ffffff;
+    color: #64748b;
+    border: 1px solid #e2e8f0;
+}
+
+.todo-form-button--cancel:hover {
+    background-color: #f8fafc;
+    color: #334155;
+    border-color: #cbd5e1;
+}
+
+.todo-form-button--add {
+    background: #6366f1;
+    color: #ffffff;
+}
+
+.todo-form-button--add:hover {
+    background: #4f46e5;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+}

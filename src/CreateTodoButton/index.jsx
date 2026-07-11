@@ -1,14 +1,19 @@
+import { TodoContext } from '../TodoContext'
+import React from 'react'
 import './CreateTodoButton.css'
 
-function CreateTodoButton(){
-  return(
-    <button className="create-todo-btn"
-     onClick={(event) => {
-      console.log("le diste click")
-      console.log(event)
-      console.log(event.target)
-     }}>Crear Tarea</button>
+function CreateTodoButton() {
+
+  const { openModal, setOpenModal } = React.useContext(TodoContext)
+
+  return (
+
+    <button
+      className="create-todo-btn"
+      onClick={() => setOpenModal(state => !state)}
+    >
+      Crear Tarea
+    </button>
   )
 }
-
-export {CreateTodoButton}
+export { CreateTodoButton }
